@@ -203,11 +203,11 @@ public class TradeController extends Controller
 			//Benachrichtigung fuer HP-Besitzer schreiben
 			if(ship.getOwner().getId()!=tradepost.getOwner().getId())
 			{
-				PM.send(tradepost.getOwner(), tradepost.getOwner().getId(), "Warenverkauf an "+tradepost.getName(), pmText.toString());
+				PM.send(tradepost.getOwner(), tradepost.getOwner().getId(), "Warenhandel mit "+tradepost.getName(), pmText.toString());
 			}
 			tradepost.getOwner()
 					.transferMoneyFrom(user.getId(), totalRE,
-							"Warenverkauf an"+tradepost.getName()+" bei " + tradepost.getLocation().displayCoordinates(false),
+							"Warenhandel mit "+tradepost.getName()+" bei " + tradepost.getLocation().displayCoordinates(false),
 							false, UserMoneyTransfer.Transfer.SEMIAUTO);
 		}
 		return new RedirectViewResult("default");
